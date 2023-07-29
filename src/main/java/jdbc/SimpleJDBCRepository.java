@@ -22,10 +22,10 @@ public class SimpleJDBCRepository {
     private ResultSet rs =null;
 
     private static final String createUserSQL = "INSERT INTO myusers (firstname, lastname, age) VALUES (?, ?, ?)";
-    private static final String updateUserSQL = "UPDATE myusers SET firstname=?, lastname=?, age=? WHERE id_users=?";
+    private static final String updateUserSQL = "UPDATE myusers SET firstname=?, lastname=?, age=? WHERE id=?";
     private static final String deleteUser = "DELETE FROM myusers WHERE id=?";
     ;
-    private static final String findUserByIdSQL = "SELECT * FROM myusers WHERE id_users = ?";
+    private static final String findUserByIdSQL = "SELECT * FROM myusers WHERE id = ?";
     private static final String findUserByNameSQL = "SELECT * FROM myusers WHERE lastname = ?";
     private static final String findAllUserSQL = "SELECT * FROM myusers";
 
@@ -107,7 +107,7 @@ public class SimpleJDBCRepository {
             rs = st.executeQuery(findAllUserSQL);
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getLong("id_users"));
+                user.setId(rs.getLong("id"));
                 user.setFirstName(rs.getString("firstname"));
                 user.setLastName(rs.getString("lastname"));
                 user.setAge(rs.getInt("age"));
