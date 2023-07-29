@@ -3,11 +3,9 @@ package jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
+
 
 public class CustomConnector {
-//    private final Properties properties = new Properties();
-//    private Connection conn = null;
 
     public Connection getConnection(String url) {
 
